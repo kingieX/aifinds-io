@@ -3,6 +3,7 @@ export type AITool = {
   name: string;
   description: string;
   category: string;
+  categoryId?: string; // optional for future use
   tags: string[];
   website: string;
   image: string;
