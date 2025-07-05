@@ -7,6 +7,15 @@ export default function Footer() {
         <p className="text-sm text-muted-foreground">
           &copy; 2025 aifinds.io. All rights reserved.
         </p>
+        <p className="text-sm text-muted-foreground">
+          Built with ❤️ by{" "}
+          <a
+            href="https://x.com/ObaTheDeveloper"
+            className="text-primary hover:underline"
+          >
+            Oba The Developer
+          </a>
+        </p>
         <div className="flex gap-4 text-sm">
           <Link
             href="/about"
@@ -15,10 +24,16 @@ export default function Footer() {
             About
           </Link>
           <Link
-            href="/submit"
+            href="/terms"
             className="hover:text-primary text-muted-foreground"
           >
-            Submit
+            Terms of Use
+          </Link>
+          <Link
+            href="/privacy"
+            className="hover:text-primary text-muted-foreground"
+          >
+            Privacy Policy
           </Link>
         </div>
       </div>

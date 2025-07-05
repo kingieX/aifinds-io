@@ -1,4 +1,3 @@
-// app/tools/[id]/page.tsx
 import { mockTools } from "@/data/mockTools";
 import { AITool } from "@/types/tool";
 import Image from "next/image";
