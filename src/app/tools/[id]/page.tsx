@@ -9,13 +9,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RelatedTools from "@/components/RelatedTools";
 
-export default async function ToolDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const tool: AITool | undefined = mockTools.find((t) => t.id === params.id);
+type Params = {
+  params: {
+    id: string;
+  };
+};
 
+export default function ToolDetailPage({ params }: Params) {
+  const tool: AITool | undefined = mockTools.find((t) => t.id === params.id);
   if (!tool) return notFound();
 
   return (
