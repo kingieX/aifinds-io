@@ -13,7 +13,7 @@ export default function Footer() {
             href="https://x.com/ObaTheDeveloper"
             className="text-primary hover:underline"
           >
-            Oba The Developer
+            Nnachi Chima Kingsley
           </a>
         </p>
         <div className="flex gap-4 text-sm">
