@@ -3,8 +3,6 @@
 import { mockTools } from "@/data/mockTools";
 import ToolCard from "@/components/ToolCard";
 import { AITool } from "@/types/tool";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { categories } from "@/data/categories";
 import { useMemo, useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
@@ -63,7 +61,6 @@ export default function HomeClient() {
 
   return (
     <>
-      <Navbar />
       <section className="max-w-8xl  py-0 space-y-12">
         <section className="relative text-center space-y-6 px-4 py-20 md:py-32 overflow-hidden">
           <img
@@ -159,7 +156,6 @@ export default function HomeClient() {
           )}
         </div>
       </section>
-      <Footer />
     </>
   );
 }
