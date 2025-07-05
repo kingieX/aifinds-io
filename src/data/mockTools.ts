@@ -10,10 +10,21 @@ export const mockTools: AITool[] = [
     categoryId: "chatbot",
     tags: ["openai", "text", "gpt-4"],
     website: "https://chat.openai.com/",
+    github: "https://github.com/openai/chatgpt", // hypothetical
     image: "/tools/chatgpt.png",
     isFeatured: true,
     createdAt: "2023-03-15T10:00:00Z",
     upvotes: 5120,
+    features: [
+      "Human-like conversation",
+      "Custom GPTs",
+      "Supports code, writing, and Q&A",
+    ],
+    useCases: [
+      "Answering complex questions",
+      "Writing blog posts",
+      "Explaining code snippets",
+    ],
   },
   {
     id: "midjourney",
@@ -27,6 +38,12 @@ export const mockTools: AITool[] = [
     isFeatured: true,
     createdAt: "2023-07-10T12:00:00Z",
     upvotes: 3420,
+    features: ["Text-to-image", "Fine-tuned models", "Stylized output"],
+    useCases: [
+      "Creating concept art",
+      "Design mockups",
+      "AI-generated portraits",
+    ],
   },
   {
     id: "github-copilot",
@@ -36,10 +53,21 @@ export const mockTools: AITool[] = [
     categoryId: "code",
     tags: ["coding", "ide", "openai"],
     website: "https://github.com/features/copilot",
+    github: "https://github.com/features/copilot",
     image: "/tools/copilot.png",
     isFeatured: true,
     createdAt: "2022-11-01T09:30:00Z",
     upvotes: 2800,
+    features: [
+      "Real-time code suggestions",
+      "Comment-based coding",
+      "IDE integration",
+    ],
+    useCases: [
+      "Speeding up development",
+      "Learning new languages",
+      "Reducing boilerplate code",
+    ],
   },
   {
     id: "runwayml",
@@ -54,6 +82,8 @@ export const mockTools: AITool[] = [
     isFeatured: false,
     createdAt: "2023-09-21T08:00:00Z",
     upvotes: 1200,
+    features: ["Video-to-video", "Text-guided editing", "Green screen"],
+    useCases: ["AI video editing", "Marketing videos", "Creative storytelling"],
   },
   {
     id: "notion-ai",
@@ -68,6 +98,8 @@ export const mockTools: AITool[] = [
     isFeatured: false,
     createdAt: "2023-04-05T11:20:00Z",
     upvotes: 2200,
+    features: ["Summarization", "Content generation", "Action items"],
+    useCases: ["Writing meeting notes", "Generating ideas", "Daily journaling"],
   },
   {
     id: "elevenlabs",
@@ -81,6 +113,8 @@ export const mockTools: AITool[] = [
     isFeatured: true,
     createdAt: "2023-06-14T15:45:00Z",
     upvotes: 1800,
+    features: ["Realistic voices", "Voice cloning", "Multi-language support"],
+    useCases: ["Creating voiceovers", "Audiobooks", "Voice assistants"],
   },
   {
     id: "poe",
@@ -94,6 +128,12 @@ export const mockTools: AITool[] = [
     isFeatured: false,
     createdAt: "2023-05-25T13:10:00Z",
     upvotes: 1450,
+    features: ["Multiple AI models", "Chat history", "Fast switching"],
+    useCases: [
+      "Comparing AI models",
+      "Answering questions",
+      "Educational queries",
+    ],
   },
   {
     id: "replit-ghostwriter",
@@ -107,6 +147,8 @@ export const mockTools: AITool[] = [
     isFeatured: false,
     createdAt: "2023-08-03T17:00:00Z",
     upvotes: 1350,
+    features: ["Code completion", "AI debug", "Multi-language support"],
+    useCases: ["Fixing bugs", "Writing new code", "Learning to code"],
   },
   {
     id: "d-id",
@@ -120,6 +162,12 @@ export const mockTools: AITool[] = [
     isFeatured: false,
     createdAt: "2023-02-17T10:15:00Z",
     upvotes: 1600,
+    features: ["Talking avatars", "Text-to-speech", "Image animation"],
+    useCases: [
+      "Virtual spokesperson",
+      "Interactive presentations",
+      "Personalized videos",
+    ],
   },
   {
     id: "krisp",
@@ -133,5 +181,11 @@ export const mockTools: AITool[] = [
     isFeatured: false,
     createdAt: "2023-01-29T09:00:00Z",
     upvotes: 1750,
+    features: ["Noise cancellation", "Voice clarity", "Echo removal"],
+    useCases: [
+      "Clearer online meetings",
+      "Recording podcasts",
+      "Working in noisy spaces",
+    ],
   },
 ];

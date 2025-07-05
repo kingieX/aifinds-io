@@ -10,4 +10,7 @@ export type AITool = {
   isFeatured?: boolean;
   createdAt: string; // ISO format
   upvotes?: number;
+  github?: string;
+  features?: string[];
+  useCases?: string[];
 };
