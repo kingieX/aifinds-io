@@ -8,4 +8,6 @@ export type AITool = {
   website: string;
   image: string;
   isFeatured?: boolean;
+  createdAt: string; // ISO format
+  upvotes?: number;
 };

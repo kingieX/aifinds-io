@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { mockTools } from "@/data/mockTools";
 import ToolCard from "@/components/ToolCard";
@@ -5,8 +6,9 @@ import { AITool } from "@/types/tool";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { categories } from "@/data/categories";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import ToolCardSkeleton from "@/components/ToolCardSkeleton";
 
 export default function HomePage() {
   const searchParams = useSearchParams();
@@ -14,6 +16,17 @@ export default function HomePage() {
   const pathname = usePathname();
 
   const selectedCategory = searchParams.get("category");
+
+  // loading state
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // simulate 1s delay
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   // const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -51,21 +64,53 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <section className="max-w-6xl mx-auto px-4 py-12 space-y-12">
-        {/* Hero Section */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">
-            Discover AI Tools That Matter
-          </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Explore the best AI tools, models, and projects curated for
-            developers, creators, and curious minds.
-          </p>
-        </div>
+      <section className="max-w-8xl  py-0 space-y-12">
+        <section className="relative text-center space-y-6 px-4 py-20 md:py-32 overflow-hidden">
+          <img
+            src="/bg/ai-hero1.jpg"
+            alt="Background"
+            className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none z-0"
+          />
+
+          <div className="relative z-10">
+            <h1
+              className="text-4xl sm:text-5xl font-bold tracking-tight"
+              data-aos="fade-up"
+            >
+              Discover AI Tools That Matter
+            </h1>
+            <p
+              className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              Explore the best AI tools, models, and projects curated for
+              developers, creators, and curious minds.
+            </p>
+            <div
+              className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a
+                href="/explore"
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium"
+              >
+                Explore Tools →
+              </a>
+              <a
+                href="/submit"
+                className="border border-border px-6 py-3 rounded-md text-sm font-medium"
+              >
+                Submit a Tool
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Category Section */}
         {/* Category Filter Section */}
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -91,7 +136,7 @@ export default function HomePage() {
         </div>
 
         {/* Featured Tools */}
-        <div>
+        <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-semibold mb-4">
             {selectedCategory
               ? `Tools in "${
@@ -105,9 +150,11 @@ export default function HomePage() {
             </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {filteredTools.map((tool: AITool) => (
-                <ToolCard key={tool.id} tool={tool} />
-              ))}
+              {loading
+                ? [...Array(6)].map((_, i) => <ToolCardSkeleton key={i} />)
+                : filteredTools.map((tool: AITool) => (
+                    <ToolCard key={tool.id} tool={tool} />
+                  ))}
             </div>
           )}
         </div>
