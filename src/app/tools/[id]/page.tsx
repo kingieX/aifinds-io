@@ -1,7 +1,6 @@
 import { mockTools } from "@/data/mockTools";
 import { AITool } from "@/types/tool";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { CalendarDays, ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -9,16 +8,20 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RelatedTools from "@/components/RelatedTools";
 
-type Params = {
-  params: {
-    id: string;
-  };
-};
+export default async function ToolDetailPage({
+  params,
+}: {
+  //   params: { id: string };
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params; // Await if params is async
+  const tool: AITool | undefined = mockTools.find(
+    (t) => t.id === resolvedParams.id
+  );
 
-export default function ToolDetailPage({ params }: Params) {
-  const tool: AITool | undefined = mockTools.find((t) => t.id === params.id);
-  if (!tool) return notFound();
+  //   const tool: AITool | undefined = mockTools.find((t) => t.id === params.id);
 
+  if (!tool) return <p>Tool not found</p>;
   return (
     <>
       <Navbar />
